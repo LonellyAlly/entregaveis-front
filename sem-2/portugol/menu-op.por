@@ -1,58 +1,43 @@
-programa
-{
-    funcao inicio()
-    {
-        inteiro opcao
-        real primeiro_numero
-        real segundo_numero
-        real resultado
+algoritmo "menu-op"
 
-        escreva("=== Menu de Operações ===\n")
-        escreva("1 - Soma\n")
-        escreva("2 - Subtração\n")
-        escreva("3 - Multiplicação\n")
-        escreva("4 - Divisão\n")
+var
+    opcao: inteiro
+    primeiro_numero, segundo_numero, resultado: real
 
-        escreva("Escolha uma opção: ")
-        leia(opcao)
+inicio
+    escreval("=== Menu de Operacoes Matematicas ===")
+    escreval("1 - Soma")
+    escreval("2 - Subtracao")
+    escreval("3 - Multiplicacao")
+    escreval("4 - Divisao")
 
-        escreva("Digite o primeiro número: ")
-        leia(primeiro_numero)
+    escreva("Escolha uma opcao (1-4): ")
+    leia(opcao)
 
-        escreva("Digite o segundo número: ")
-        leia(segundo_numero)
+    escreva("Insira o primeiro numero: ")
+    leia(primeiro_numero)
 
-        escolha (opcao)
-        {
-            caso 1:
-                resultado = primeiro_numero + segundo_numero
-                escreva("O resultado da soma é ", resultado, ".")
-                pare
+    escreva("Insira o segundo numero: ")
+    leia(segundo_numero)
 
-            caso 2:
-                resultado = primeiro_numero - segundo_numero
-                escreva("O resultado da subtração é ", resultado, ".")
-                pare
-
-            caso 3:
-                resultado = primeiro_numero * segundo_numero
-                escreva("O resultado da multiplicação é ", resultado, ".")
-                pare
-
-            caso 4:
-                se (segundo_numero != 0)
-                {
-                    resultado = primeiro_numero / segundo_numero
-                    escreva("O resultado da divisão é ", resultado, ".")
-                }
-                senao
-                {
-                    escreva("Não é possível dividir por zero.")
-                }
-                pare
-
-            caso contrario:
-                escreva("A opção escolhida é inválida.")
-        }
-    }
-}
+    escolha opcao
+        caso 1
+            resultado <- primeiro_numero + segundo_numero
+            escreval("Soma: ", resultado)
+        caso 2
+            resultado <- primeiro_numero - segundo_numero
+            escreval("Subtracao: ", resultado)
+        caso 3
+            resultado <- primeiro_numero * segundo_numero
+            escreval("Multiplicacao: ", resultado)
+        caso 4
+            se segundo_numero = 0 entao
+                escreval("Erro: divisao por zero nao e permitida.")
+            senao
+                resultado <- primeiro_numero / segundo_numero
+                escreval("Divisao: ", resultado)
+            fimse
+        outrocaso
+            escreval("Opcao invalida.")
+    fimescolha
+fimalgoritmo

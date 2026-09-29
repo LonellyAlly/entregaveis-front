@@ -1,34 +1,30 @@
-programa
-{
-    funcao inicio()
-    {
-        inteiro idade
-        real renda
-        cadeia categoria
+algoritmo "class-cli"
 
-        escreva("Digite a idade do cliente: ")
-        leia(idade)
+var
+    idade: inteiro
+    renda: real
+    categoria: caractere
 
-        escreva("Digite a renda mensal do cliente: ")
-        leia(renda)
+inicio
+    escreva("Insira a idade do cliente: ")
+    leia(idade)
 
-        se (idade < 18)
-        {
-            categoria = "Bronze"
-        }
-        senao se (renda < 3000)
-        {
-            categoria = "Prata"
-        }
-        senao se (renda < 10000)
-        {
-            categoria = "Ouro"
-        }
-        senao
-        {
-            categoria = "Diamante"
-        }
+    escreva("Insira a renda mensal do cliente: ")
+    leia(renda)
 
-        escreva("O cliente foi classificado na categoria ", categoria, ".")
-    }
-}
+    se idade < 18 entao
+        categoria <- "Bronze"
+    senao se renda < 2000 entao
+        categoria <- "Bronze"
+    senao se renda < 5000 entao
+        categoria <- "Prata"
+    senao se renda < 10000 entao
+        categoria <- "Ouro"
+    senao
+        categoria <- "Diamante"
+    fimse
+
+    escreval("Idade: ", idade, " anos")
+    escreval("Renda: R$ ", renda:0:2)
+    escreval("Categoria do cliente: ", categoria)
+fimalgoritmo

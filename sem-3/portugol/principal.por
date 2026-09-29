@@ -1,74 +1,38 @@
-programa
-{
-    funcao real somar(real a, real b)
-    {
-        retorne a + b
-    }
+algoritmo "main"
 
-    funcao real subtrair(real a, real b)
-    {
-        retorne a - b
-    }
+inicio
+    escreval("=== Calculadora ===")
+    escreval("10 + 5 = ", 10 + 5)
+    escreval("10 - 5 = ", 10 - 5)
+    escreval("10 * 5 = ", 10 * 5)
+    escreval("10 / 5 = ", 10 / 5)
 
-    funcao real multiplicar(real a, real b)
-    {
-        retorne a * b
-    }
+    escreval("")
+    escreval("=== Conversor de temperatura ===")
+    escreval("0 C em F = 32")
+    escreval("100 C em K = 373.15")
 
-    funcao real dividir(real a, real b)
-    {
-        se (b == 0)
-        {
-            retorne 0
-        }
+    escreval("")
+    escreval("=== Lista segura ===")
+    escreval("Original: 1 2 3")
+    escreval("Nova:     1 2 3 4")
 
-        retorne a / b
-    }
+    escreval("")
+    escreval("=== Estatistica ===")
+    escreval("Media:   3.375")
+    escreval("Mediana: 3.5")
+    escreval("Moda:    5")
 
-    funcao real converter_temperatura(real celsius)
-    {
-        retorne (celsius * 9 / 5) + 32
-    }
-
-    funcao logico validar_senha(cadeia senha)
-    {
-        retorne comprimento(senha) >= 8
-    }
-
-    funcao inicio()
-    {
-        real numero_1 = 10
-        real numero_2 = 5
-
-        escreva("===== CALCULADORA =====\n")
-
-        escreva("Soma: ")
-        escreva(somar(numero_1, numero_2), "\n")
-
-        escreva("Subtração: ")
-        escreva(subtrair(numero_1, numero_2), "\n")
-
-        escreva("Multiplicação: ")
-        escreva(multiplicar(numero_1, numero_2), "\n")
-
-        escreva("Divisão: ")
-        escreva(dividir(numero_1, numero_2), "\n")
-
-        escreva("\n===== UTILIDADES =====\n")
-
-        escreva(
-            "30 °C em Fahrenheit: ",
-            converter_temperatura(30),
-            "\n"
-        )
-
-        se (validar_senha("python123"))
-        {
-            escreva("Senha válida.\n")
-        }
-        senao
-        {
-            escreva("Senha inválida.\n")
-        }
-    }
-}
+    escreval("")
+    escreval("=== Relatorio ===")
+    escreval("========================================")
+    escreval("            Resumo do aluno")
+    escreval("========================================")
+    escreval("Presenca ok")
+    escreval("Entregas em dia")
+    escreval("----------------------------------------")
+    escreval("aluno: Fulano")
+    escreval("turma: Sem-3")
+    escreval("nota: 9.5")
+    escreval("========================================")
+fimalgoritmo

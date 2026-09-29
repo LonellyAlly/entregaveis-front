@@ -1,51 +1,138 @@
-programa
-{
-    // Converte Celsius para Fahrenheit.
-    funcao real celsius_para_fahrenheit(real celsius)
-    {
-        retorne (celsius * 9 / 5) + 32
-    }
+algoritmo "utilidades"
 
-    // Verifica se a senha possui pelo menos 8 caracteres.
-    funcao logico validar_senha(cadeia senha)
-    {
-        se (comprimento(senha) >= 8)
-        {
-            retorne verdadeiro
-        }
+funcao converter_temperatura(valor, origem, destino)
+var
+    celsius: real
+inicio
+    origem <- maiusculo(origem)
+    destino <- maiusculo(destino)
 
-        retorne falso
-    }
+    se origem = destino entao
+        retorne valor
+    fimse
 
-    // Demonstra o cálculo de um total.
-    funcao real calcular_total(real primeiro_preco, real segundo_preco, real terceiro_preco)
-    {
-        retorne primeiro_preco + segundo_preco + terceiro_preco
-    }
+    se origem = "C" entao
+        celsius <- valor
+    senao se origem = "F" entao
+        celsius <- (valor - 32) * 5 / 9
+    senao se origem = "K" entao
+        celsius <- valor - 273.15
+    senao
+        retorne "Unidade de origem invalida"
+    fimse
 
-    funcao inicio()
-    {
-        real temperatura
-        real total
-        cadeia senha
+    se destino = "C" entao
+        retorne celsius
+    senao se destino = "F" entao
+        retorne celsius * 9 / 5 + 32
+    senao se destino = "K" entao
+        retorne celsius + 273.15
+    senao
+        retorne "Unidade de destino invalida"
+    fimse
+fimfuncao
 
-        temperatura = celsius_para_fahrenheit(30)
+funcao validar_senha(senha)
+var
+    problemas: vetor[1..5] de caractere
+    total: inteiro
+    i: inteiro
+    tem_maiuscula, tem_minuscula, tem_numero, tem_especial: logico
+inicio
+    total <- 0
+    tem_maiuscula <- falso
+    tem_minuscula <- falso
+    tem_numero <- falso
+    tem_especial <- falso
 
-        escreva("30 °C correspondem a ", temperatura, " °F.\n")
+    se compr(senha) < 8 entao
+        total <- total + 1
+        problemas[total] <- "A senha deve ter pelo menos 8 caracteres."
+    fimse
 
-        senha = "Python123"
+    para i de 1 ate compr(senha) faca
+        se copia(senha, i, 1) >= "A" e copia(senha, i, 1) <= "Z" entao
+            tem_maiuscula <- verdadeiro
+        fimse
+        se copia(senha, i, 1) >= "a" e copia(senha, i, 1) <= "z" entao
+            tem_minuscula <- verdadeiro
+        fimse
+        se copia(senha, i, 1) >= "0" e copia(senha, i, 1) <= "9" entao
+            tem_numero <- verdadeiro
+        fimse
+        se nao ((copia(senha, i, 1) >= "A" e copia(senha, i, 1) <= "Z") ou
+                (copia(senha, i, 1) >= "a" e copia(senha, i, 1) <= "z") ou
+                (copia(senha, i, 1) >= "0" e copia(senha, i, 1) <= "9")) entao
+            tem_especial <- verdadeiro
+        fimse
+    fimpara
 
-        se (validar_senha(senha))
-        {
-            escreva("A senha é válida.\n")
-        }
-        senao
-        {
-            escreva("A senha é inválida.\n")
-        }
+    se nao tem_maiuscula entao
+        total <- total + 1
+        problemas[total] <- "A senha deve conter pelo menos 1 letra maiuscula."
+    fimse
+    se nao tem_minuscula entao
+        total <- total + 1
+        problemas[total] <- "A senha deve conter pelo menos 1 letra minuscula."
+    fimse
+    se nao tem_numero entao
+        total <- total + 1
+        problemas[total] <- "A senha deve conter pelo menos 1 numero."
+    fimse
+    se nao tem_especial entao
+        total <- total + 1
+        problemas[total] <- "A senha deve conter pelo menos 1 caractere especial."
+    fimse
 
-        total = calcular_total(15.50, 20.00, 7.50)
+    retorne problemas
+fimfuncao
 
-        escreva("Total da compra: R$ ", total, "\n")
-    }
-}
+funcao caixa(precos: vetor de real, quantidade: inteiro, desconto: real)
+var
+    subtotal, valor_desconto, total: real
+    i: inteiro
+inicio
+    subtotal <- 0
+    para i de 1 ate quantidade faca
+        subtotal <- subtotal + precos[i]
+    fimpara
+
+    valor_desconto <- subtotal * (desconto / 100)
+    total <- subtotal - valor_desconto
+
+    escreval("Subtotal: ", subtotal)
+    escreval("Desconto: ", valor_desconto)
+    escreval("Total: ", total)
+fimfuncao
+
+procedimento ficha_aluno(nome, turma: caractere; nota: real; faltas: inteiro)
+inicio
+    escreval("========================================")
+    escreval("             FICHA DO ALUNO")
+    escreval("========================================")
+    escreval("Nome: ", nome)
+    escreval("Turma: ", turma)
+    escreval("Nota: ", nota)
+    escreval("Faltas: ", faltas)
+    escreval("========================================")
+fimprocedimento
+
+inicio
+    escreval("=== Conversor de temperatura ===")
+    escreval("0 C em F: ", converter_temperatura(0, "C", "F"))
+    escreval("100 C em K: ", converter_temperatura(100, "C", "K"))
+    escreval("32 F em C: ", converter_temperatura(32, "F", "C"))
+
+    escreval("")
+    escreval("=== Validador de senha ===")
+    validar_senha("abc")
+    validar_senha("Senha123!")
+
+    escreval("")
+    escreval("=== Caixa ===")
+    caixa({10.0, 20.0, 30.0}, 3, 10.0)
+
+    escreval("")
+    escreval("=== Ficha do aluno ===")
+    ficha_aluno("Fulano", "Sem-3", 9.5, 2)
+fimalgoritmo

@@ -1,21 +1,20 @@
 soma = 0
-maior_numero = None
-menor_numero = None
+maior = None
+menor = None
 
-for contador in range(1, 6):
-    numero = float(input(f"Digite o {contador}º número: "))
-
+for indice in range(1, 6):
+    numero = float(input(f"Insira o {indice}º número: "))
     soma += numero
 
-    if maior_numero is None or numero > maior_numero:
-        maior_numero = numero
+    if maior is None or numero > maior:
+        maior = numero
 
-    if menor_numero is None or numero < menor_numero:
-        menor_numero = numero
+    if menor is None or numero < menor:
+        menor = numero
 
 media = soma / 5
 
 print(f"Soma: {soma}")
 print(f"Média: {media}")
-print(f"Maior valor: {maior_numero}")
-print(f"Menor valor: {menor_numero}")
+print(f"Maior valor: {maior}")
+print(f"Menor valor: {menor}")

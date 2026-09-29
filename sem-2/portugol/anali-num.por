@@ -1,44 +1,37 @@
-8programa
-{
-    funcao inicio()
-    {
-        real numero
-        real soma = 0
-        real media
-        real maior_numero
-        real menor_numero
+algoritmo "anali-num"
 
-        para (inteiro contador = 1; contador <= 5; contador++)
-        {
-            escreva("Digite o ", contador, "º número: ")
-            leia(numero)
+var
+    indice: inteiro
+    numero, soma, media, maior, menor: real
 
-            soma = soma + numero
+inicio
+    soma <- 0
+    maior <- 0
+    menor <- 0
 
-            se (contador == 1)
-            {
-                maior_numero = numero
-                menor_numero = numero
-            }
-            senao
-            {
-                se (numero > maior_numero)
-                {
-                    maior_numero = numero
-                }
+    para indice de 1 ate 5 faca
+        escreva("Insira o ", indice, "o numero: ")
+        leia(numero)
 
-                se (numero < menor_numero)
-                {
-                    menor_numero = numero
-                }
-            }
-        }
+        soma <- soma + numero
 
-        media = soma / 5
+        se indice = 1 entao
+            maior <- numero
+            menor <- numero
+        senao
+            se numero > maior entao
+                maior <- numero
+            fimse
+            se numero < menor entao
+                menor <- numero
+            fimse
+        fimse
+    fimpara
 
-        escreva("\nSoma: ", soma, "\n")
-        escreva("Média: ", media, "\n")
-        escreva("Maior valor: ", maior_numero, "\n")
-        escreva("Menor valor: ", menor_numero, "\n")
-    }
-}
+    media <- soma / 5
+
+    escreval("Soma: ", soma)
+    escreval("Media: ", media)
+    escreval("Maior valor: ", maior)
+    escreval("Menor valor: ", menor)
+fimalgoritmo

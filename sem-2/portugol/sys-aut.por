@@ -1,34 +1,37 @@
-programa
-{
-    funcao inicio()
-    {
-        cadeia senha_correta = "1234"
-        cadeia senha
-        inteiro tentativas = 0
-        logico acesso_concedido = falso
+algoritmo "sys-aut"
 
-        enquanto (tentativas < 3)
-        {
-            escreva("Digite a sua senha: ")
-            leia(senha)
+var
+    senha_correta: caractere
+    senha: caractere
+    tentativas, maximo_tentativas, restantes: inteiro
+    acesso_liberado: logico
 
-            tentativas = tentativas + 1
+inicio
+    senha_correta <- "python123"
+    maximo_tentativas <- 3
+    tentativas <- 0
+    acesso_liberado <- falso
 
-            se (senha == senha_correta)
-            {
-                acesso_concedido = verdadeiro
+    enquanto tentativas < maximo_tentativas faca
+        escreva("Insira a senha: ")
+        leia(senha)
 
-                escreva("Acesso autorizado na tentativa ", tentativas, ".\n")
+        tentativas <- tentativas + 1
 
-                pare
-            }
+        se senha = senha_correta entao
+            acesso_liberado <- verdadeiro
+            interrompa
+        fimse
 
-            escreva("Senha incorreta. Tentativa ", tentativas, " de 3.\n")
-        }
+        restantes <- maximo_tentativas - tentativas
+        se restantes > 0 entao
+            escreval("Senha incorreta. Tentativas restantes: ", restantes)
+        fimse
+    fimenquanto
 
-        se (acesso_concedido == falso)
-        {
-            escreva("Acesso bloqueado após ", tentativas, " tentativas.")
-        }
-    }
-}
+    se acesso_liberado entao
+        escreval("Acesso liberado apos ", tentativas, " tentativa(s).")
+    senao
+        escreval("Acesso bloqueado apos ", tentativas, " tentativas.")
+    fimse
+fimalgoritmo

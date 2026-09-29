@@ -1,43 +1,37 @@
-programa
-{
-    // Retorna a soma de dois números.
-    funcao real somar(real primeiro_numero, real segundo_numero)
-    {
-        retorne primeiro_numero + segundo_numero
-    }
+algoritmo "calculadora"
 
-    // Retorna a subtração de dois números.
-    funcao real subtrair(real primeiro_numero, real segundo_numero)
-    {
-        retorne primeiro_numero - segundo_numero
-    }
+funcao somar(primeiro_numero, segundo_numero)
+inicio
+    retorne primeiro_numero + segundo_numero
+fimfuncao
 
-    // Retorna a multiplicação de dois números.
-    funcao real multiplicar(real primeiro_numero, real segundo_numero)
-    {
-        retorne primeiro_numero * segundo_numero
-    }
+funcao subtrair(primeiro_numero, segundo_numero)
+inicio
+    retorne primeiro_numero - segundo_numero
+fimfuncao
 
-    // Realiza a divisão.
-    // A divisão por zero é verificada antes da operação.
-    funcao real dividir(real primeiro_numero, real segundo_numero)
-    {
-        se (segundo_numero == 0)
-        {
-            retorne 0
-        }
+funcao multiplicar(primeiro_numero, segundo_numero)
+inicio
+    retorne primeiro_numero * segundo_numero
+fimfuncao
 
-        retorne primeiro_numero / segundo_numero
-    }
+funcao dividir(primeiro_numero, segundo_numero)
+inicio
+    se segundo_numero = 0 entao
+        retorne nulo
+    fimse
+    retorne primeiro_numero / segundo_numero
+fimfuncao
 
-    funcao inicio()
-    {
-        real primeiro_numero = 20
-        real segundo_numero = 5
+inicio
+    escreva("Insira o primeiro numero: ")
+    leia(primeiro_numero)
+    escreva("Insira o segundo numero: ")
+    leia(segundo_numero)
 
-        escreva("Soma: ", somar(primeiro_numero, segundo_numero), "\n")
-        escreva("Subtração: ", subtrair(primeiro_numero, segundo_numero), "\n")
-        escreva("Multiplicação: ", multiplicar(primeiro_numero, segundo_numero), "\n")
-        escreva("Divisão: ", dividir(primeiro_numero, segundo_numero), "\n")
-    }
-}
+    escreval("Soma: ", somar(primeiro_numero, segundo_numero))
+    escreval("Subtracao: ", subtrair(primeiro_numero, segundo_numero))
+    escreval("Multiplicacao: ", multiplicar(primeiro_numero, segundo_numero))
+    escreval("Divisao: ", dividir(primeiro_numero, segundo_numero))
+    escreval("Divisao por zero: ", dividir(primeiro_numero, 0))
+fimalgoritmo

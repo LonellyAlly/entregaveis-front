@@ -1,17 +1,22 @@
-senha_correta = "1234"
-tentativas = 0
-acesso_concedido = False
+SENHA_CORRETA = "python123"
+MAXIMO_TENTATIVAS = 3
 
-while tentativas < 3:
-    senha = input("Digite a sua senha: ")
+tentativas = 0
+acesso_liberado = False
+
+while tentativas < MAXIMO_TENTATIVAS:
+    senha = input("Insira a senha: ")
     tentativas += 1
 
-    if senha == senha_correta:
-        acesso_concedido = True
-        print(f"Acesso autorizado na tentativa {tentativas}.")
+    if senha == SENHA_CORRETA:
+        acesso_liberado = True
         break
 
-    print(f"Senha incorreta. Tentativa {tentativas} de 3.")
+    restantes = MAXIMO_TENTATIVAS - tentativas
+    if restantes > 0:
+        print(f"Senha incorreta. Tentativas restantes: {restantes}")
 
-if not acesso_concedido:
+if acesso_liberado:
+    print(f"Acesso liberado após {tentativas} tentativa(s).")
+else:
     print(f"Acesso bloqueado após {tentativas} tentativas.")
