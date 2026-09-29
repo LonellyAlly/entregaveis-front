@@ -7,7 +7,6 @@ defensiva de listas. Cada exercício tem versão em **Python** e em **Portugol**
 ## Estrutura
 
 ```markdown
-```
 sem-3/
 ├── README.md
 ├── portugol/
