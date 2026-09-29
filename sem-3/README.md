@@ -22,7 +22,6 @@ sem-3/
     ├── estatistica.py
     └── principal.py
 ```
-```
 ## Módulos
 
 ### calculadora
