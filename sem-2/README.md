@@ -5,7 +5,6 @@ versões em **Python** e em **Portugol** para cada desafio.
 
 ## Estrutura
 ```markdown
-```
 sem-2/
 ├── portugol/
 │   ├── anali-num.por
