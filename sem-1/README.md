@@ -6,6 +6,7 @@ f-strings.
 
 ## Estrutura
 
+```markdown
 sem-1/
 ├── calc-tro.py
 ├── conv-temp.py
@@ -14,6 +15,7 @@ sem-1/
 ├── media-notas.py
 └── par-im.py
 
+```
 ## Arquivos
 
 | Arquivo | Descrição |

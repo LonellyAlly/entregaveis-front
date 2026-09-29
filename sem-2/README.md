@@ -4,7 +4,8 @@ Resolução dos 4 mini-desafios da Prática Independente da Semana 02, com
 versões em **Python** e em **Portugol** para cada desafio.
 
 ## Estrutura
-
+```markdown
+```
 sem-2/
 ├── portugol/
 │   ├── anali-num.por
@@ -16,7 +17,7 @@ sem-2/
     ├── class-cli.py
     ├── menu-op.py
     └── sys-aut.py
-
+```
 ## Desafios
 
 ### 1. Classificador de Cliente (`class-cli`)
